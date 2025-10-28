@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+
+    <div class="question">
+        <form method="POST">
+            <h2>{{ question.question }}</h2>
+            {% for option in question.options %}
+               <br><br> <input type="radio" class="r-button" name="answer" value="{{ option }}"> {{ option }} <br><br>
+            {% endfor %}
+            <input type="submit" value="Submit" required>
+        </form>
+    </div>
+
+    <div class="error-message">
+        {% if error %}
+        <br><p>{{ error }}</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
